@@ -67,3 +67,7 @@ class Data:
         self.append_data()
         value = [self.x, self.y]
         return value
+
+    def clear_data(self):
+        self.x.clear()
+        self.y.clear()
