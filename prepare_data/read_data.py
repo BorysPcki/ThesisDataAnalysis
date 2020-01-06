@@ -14,3 +14,7 @@ class ProcessedData:
             for row in reader_csv:
                 self.x.append(round(float(row[0]), 5))
                 self.y.append(round(float(row[1]), 7))
+
+    def clear_data(self):
+        self.x.clear()
+        self.y.clear()
