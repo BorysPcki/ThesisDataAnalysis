@@ -26,7 +26,7 @@ for i in range(len(path.input_files)):
         entropy_plot_data.append(entropy_part[j])
     data.clear_data()
 
-with open(os.path.join(path.output_sub_path, path.output_file), 'w', newline='') as fileCSV:
+with open(os.path.join(path.output_sub_path, path.output_file_path), 'w', newline='') as fileCSV:
     writer_csv = csv.writer(fileCSV, quoting=csv.QUOTE_ALL)
     for i in range(len(entropy_sum)):
         writer_csv.writerow(entropy_sum[i])
