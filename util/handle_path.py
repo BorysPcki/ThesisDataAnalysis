@@ -35,3 +35,8 @@ class HandlePath:
         self.input_file_path = os.path.join(processed_up_path, name + '_byte')
         project_path = os.path.dirname(os.path.dirname(__file__))
         self.output_file_path = os.path.join(project_path, 'output_data', name + '_dict' + '_' + str(k) + '_' + str(d))
+
+    def read_dict(self, name):
+        project_path = os.path.dirname(os.path.dirname(__file__))
+        self.input_file_path = os.path.join(project_path, 'output_data', name)
+

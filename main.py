@@ -5,7 +5,7 @@ from algorithms import entropy
 from prepare_data import read_data
 from util import handle_path
 
-folder = '19.21_03.01.2020_no_uv'
+folder = '08.01.2020_16.38'
 n = 10
 bins = 20
 path = handle_path.HandlePath()

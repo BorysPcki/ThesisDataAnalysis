@@ -20,11 +20,11 @@ def calculate_from_file(x, y, n, bins):
 
 
 def plot(data, save_path):
-    plt.figure(figsize=(20, 4), dpi=100)
+    plt.figure(figsize=(20, 5), dpi=100)
     plt.scatter(list(range(len(data))), data)
     plt.title('Entropy')
     plt.xlabel('k')
-    # plt.ylim(2.15, 2.45)
+    # plt.ylim(2.35, 2.55)
     plt.ylabel('value')
     plt.grid()
     plt.savefig(save_path)
@@ -35,15 +35,15 @@ def plot3d(data, save_path):
     plot_data = np.array(data)
     length = plot_data.shape[0]
     width = plot_data.shape[1]
-    x, y = np.meshgrid(np.arange(length), np.arange(width))
+    x, y = np.meshgrid(np.arange(width), np.arange(length))
 
     fig = plt.figure()
     ax = plt.axes(projection='3d')
-    ax.scatter3D(x, y, plot_data)
+    ax.scatter3D(y, x, plot_data)
     plt.title('Entropy3D')
     ax.set_xlabel('i')
     ax.set_ylabel('n')
     ax.set_zlabel('value')
-    # ax.set_zlim3d(2.15, 2.45)
+    # ax.set_zlim3d(2.35, 2.55)
     plt.savefig(save_path, dpi=100)
     plt.show()

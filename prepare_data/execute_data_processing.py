@@ -3,7 +3,7 @@ import os
 
 from prepare_data import process_data
 
-folder = '16.30_04.01.2020_przykipialo'
+folder = '08.01.2020_17.34'
 input_path = os.path.join('V:\\thesis\\raw_data', folder)
 processed_path = os.path.join('V:\\thesis\\processed_data', folder)
 os.mkdir(processed_path)
