@@ -16,7 +16,7 @@ def convert(path, files):
         # for j in range(int(len(data.y) / 10000)):
         for j in range(len(data.y)):
             data_to_int = int(data.y[j] * (10 ** 7))
-            byte = data_to_int.to_bytes(length=3, byteorder=sys.byteorder, signed=True)
+            byte = data_to_int.to_bytes(length=4, byteorder=sys.byteorder, signed=True)
             sample += bytearray(byte)
         data.clear_data()
         samples.append(bytes(sample))
