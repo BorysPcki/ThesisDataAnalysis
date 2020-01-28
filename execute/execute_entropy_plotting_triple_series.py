@@ -4,9 +4,9 @@ import os
 from algorithms import entropy
 from util import handle_path
 
-folder = ['16.01.2020_17.31', '16.01.2020_18.17']
-data2d = []
-# data3d = []
+folder = ['17.01.2020_19.55_pusta', '17.01.2020_20.05', '17.01.2020_20.16']
+# data2d = []
+data3d = []
 
 for k in range(len(folder)):
     n = 10
@@ -25,13 +25,13 @@ for k in range(len(folder)):
         for j in range(len(entropy_sum[0])):
             entropy_sum[i][j] = round(float(entropy_sum[i][j]), 4)
             entropy_plot_data.append(entropy_sum[i][j])
-    data2d.append(entropy_plot_data)
-    # data3d.append(entropy_sum)
+    # data2d.append(entropy_plot_data)
+    data3d.append(entropy_sum)
 
-entropy_plot_name = 'entropy_plot.png'
-# entropy_plot3d_name = 'entropy_plot3d.png'
+# entropy_plot_name = 'entropy_plot.png'
+entropy_plot3d_name = 'entropy_plot3d.png'
 output_path = os.path.join(path.path, 'plots')
 if not os.path.exists(output_path):
     os.mkdir(output_path)
-entropy.plot_triple(data2d, os.path.join(output_path, entropy_plot_name))
-# entropy.plot3d_multiple(data3d, os.path.join(output_path, entropy_plot3d_name))
+# entropy.plot_triple(data2d, os.path.join(output_path, entropy_plot_name))
+entropy.plot3d_multiple(data3d, os.path.join(output_path, entropy_plot3d_name))

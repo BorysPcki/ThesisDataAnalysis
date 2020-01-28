@@ -5,12 +5,12 @@ from algorithms import entropy
 from prepare_data import read_data
 from util import handle_path
 
-folder = '16.01.2020_17.31'
+folder = '16.01.2020_18.17'
+
 n = 10
 bins = 20
 path = handle_path.HandlePath()
 path.calculate_entropy(folder, n, bins)
-
 
 entropy_plot_data = []
 entropy_sum = []

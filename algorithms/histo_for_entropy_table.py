@@ -1,10 +1,14 @@
 import csv
+import os
+
 import matplotlib.pyplot as plt
-import numpy as np
+import scipy.stats as stat
 
 x = []
 y = []
-with open('V:\\thesis\\10.01.2020_19.35_dict_64_16.csv') as fileCSV:
+file = '17.01.2020_20.16_dict_64_16'
+path = 'V:\\thesis\\dict\\0,1'
+with open(os.path.join(path, file + '.csv')) as fileCSV:
     reader_csv = csv.reader(fileCSV, delimiter=' ')
     for row in reader_csv:
         x.append(row[0])
@@ -16,7 +20,6 @@ for i in range(len(x)):
     if [x[i], y[i]] not in temp:
         temp.append([x[i], y[i]])
         unique.append(x[i])
-
 
 histogram_unique = {}
 for v in unique:
@@ -50,12 +53,20 @@ histogram_unique_y = list(histogram_unique.values())
 plt.bar(histogram_x, histogram_y, width=bar_width, color='c', label='słowa')
 plt.bar(histogram_unique_x, histogram_unique_y, width=bar_width, color='b', label='słowa unikalne')
 for i in range(len(histogram_x)):
-    plt.text(x=histogram_x[i], y=histogram_y[i] + 2, s=histogram_y[i], size=10, color='c', weight='bold')
-    plt.text(x=histogram_unique_x[i], y=histogram_unique_y[i] + 2, s=histogram_unique_y[i], size=10, color='b',
+    plt.text(x=histogram_x[i] - 0.05, y=histogram_y[i] + 2, s=histogram_y[i], size=10, color='c', weight='bold')
+    plt.text(x=histogram_unique_x[i] - 0.05, y=histogram_unique_y[i] + 2, s=histogram_unique_y[i], size=10, color='b',
              weight='bold')
 plt.ylim(0, 500)
 plt.xticks(ticks)
 plt.xlabel('długość bitowa')
 plt.ylabel('liczba słów')
-plt.legend(loc='upper right')
+plt.legend(loc='upper left')
+# plt.savefig(os.path.join(path, file + '.png'), dpi=100)
 plt.show()
+
+print(histogram_y)
+print(histogram_unique_y)
+entropy = round(stat.entropy(histogram_y), 4)
+print('all:', entropy)
+entropy_unique = round(stat.entropy(histogram_unique_y), 4)
+print('unique:', entropy_unique)

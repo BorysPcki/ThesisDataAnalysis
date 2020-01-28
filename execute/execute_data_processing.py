@@ -3,7 +3,7 @@ import os
 
 from prepare_data import process_data
 
-folder = '16.01.2020_18.17'
+folder = '16.01.2020_18.17_2'
 input_path = os.path.join('V:\\thesis\\raw_data', folder)
 processed_path = os.path.join('V:\\thesis\\processed_data', folder)
 if not os.path.exists(processed_path):
